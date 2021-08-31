@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "es6", /* Especifica la version de ECmaScript */
+    "module": "commonjs", /* Especifica la version a transpilar */
+    "typeRoots": ["./src/types"],
+    "declaration": true, /* genera los archivos '.d.ts' */
+    "outDir": "./dist", /* directorio donde se transpila el codigo a JS. */
+    "rootDir": "./src", /* directorio desde donde se traspila el codigo */
+    "strict": true, /* habilita  el tipado stricto. */
+    "esModuleInterop": true, /* habilita la interoperabilidad entre commonJS y otras versiones */
+    "experimentalDecorators": true, /* habilita los decoradores de ES7. (sirve mucho en inyeccion de dependencias) */
+    "emitDecoratorMetadata": true, /* habilita la emicion de decoradores. */
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true, /* Se salta la declaracion de archivos. */
+    "forceConsistentCasingInFileNames": true /* Deshabilita las referencias al mismo archivo para evitar inconsistencias. */
+  },
+  "include": [
+    "src/**/*.ts"
+  ], /* directorios y tipos de archivos que typescript buscara para transpilar. */
+  "exclude": [
+    "node_modules",
+    "coverage",
+    "dist",
+    "src/**/*.test.ts"
+  ] /* directorios que excluira para compilar. */
+}

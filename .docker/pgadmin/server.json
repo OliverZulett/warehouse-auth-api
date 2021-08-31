@@ -1,0 +1,13 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "warehouse-db-server",
+      "Group": "Servers",
+      "Port": 5432,
+      "Username": "user@warehouse.com",
+      "Host": "warehous-db",
+      "SSLMode": "prefer",
+      "MaintenanceDB": "WAREHOUSE_DB"
+    }
+  }
+}

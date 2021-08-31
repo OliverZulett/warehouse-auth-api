@@ -1,0 +1,29 @@
+version: "3.5"
+services:
+  postgres:
+    image: "postgres:latest"
+    hostname: "warehous-db"
+    ports:
+    - "7541:5432"
+    environment:
+      POSTGRES_PASSWORD: 8WYjDGo
+      POSTGRES_USER: user@warehouse.com
+      POSTGRES_DB: WAREHOUSE_DB
+    networks:
+      - interdb
+  pgAdmin:
+    image: "dpage/pgadmin4:latest"
+    ports:
+      - "7542:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: user@warehouse.com
+      PGADMIN_DEFAULT_PASSWORD: 8WYjDGo
+      PGADMIN_SERVER_JSON_FILE: /pgadmin4/conf/server.json
+    volumes:
+      - ./.docker/pgadmin/:/pgadmin4/conf/
+    networks:
+      - interdb
+networks:
+  interdb:
+    name: warehouse_interdb
+    driver: bridge
