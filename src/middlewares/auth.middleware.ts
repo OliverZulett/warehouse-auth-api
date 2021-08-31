@@ -17,7 +17,7 @@ export class AuthMiddleware {
     if (typeof bearerHeader !== 'undefined') {
       const bearerToken = bearerHeader.split(' ')[1];
       const PUBLIC_KEY = fs.readFileSync(
-        path.join(process.cwd(), '/certs/publickey.crt')
+        path.join(process.cwd(), '/certs/auth/publickey.crt')
       );
       try {
         const encrypted: any = jwt.verify(bearerToken, PUBLIC_KEY);

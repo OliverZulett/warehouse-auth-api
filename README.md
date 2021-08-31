@@ -33,9 +33,9 @@ password: 8WYjDGo
 
 _Para crear certificados de seguridad para la autenticacion JWT_
 
-1. en la raiz del repositorio
+1. crear la ruta:
 ```
-mkdir certs && cd certs
+certs/auth
 ```
 
 2. generamos el public-private keypair con **GENRSA** con una longitud de **2048**
@@ -50,14 +50,24 @@ openssl rsa -in keypair.pem -pubout -out publickey.crt
 ```
 openssl pkcs8 -topk8 -inform PEM -outform PEM -nocrypt -in keypair.pem -out pkcs8.key
 ```
-4. volvemos a la carpeta raiz
-```
-cd ..
-```
 
 **NOTA: Jamas subir los certificados a un repositorio publico**
 
+_Para crear certificados de seguridad para HTTPS_
 
+1. crear la ruta:
+```
+certs/server
+```
+
+2. generamos los certificados HTTPS dentro de la ruta
+```
+openssl genrsa -out key.pem 2048
+openssl req -new -key key.pem -out csr.pem
+openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem
+```
+
+**NOTA: Jamas subir los certificados a un repositorio publico**
 
 _Para poder ejecutar la APP necesitas seguir los siguientes pasos_
 

@@ -4,7 +4,7 @@ import path from 'path';
 
 export function createToken(payload: any) {
   const PRIVATE_KEY = fs.readFileSync(
-    path.join(process.cwd(), '/certs/keypair.pem')
+    path.join(process.cwd(), '/certs/auth/keypair.pem')
   );
   return jwt.sign(payload, PRIVATE_KEY, {
     expiresIn: '1h',
@@ -14,7 +14,7 @@ export function createToken(payload: any) {
 
 export function validateToken(token: any) {
   const PUBLIC_KEY = fs.readFileSync(
-    path.join(process.cwd(), '/certs/publickey.crt')
+    path.join(process.cwd(), '/certs/auth/publickey.crt')
   );
   return jwt.verify(token, PUBLIC_KEY);
 }
