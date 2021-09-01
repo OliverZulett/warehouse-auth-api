@@ -1,14 +1,11 @@
 import { Request, Response } from 'express';
 import Logger from '../../lib/logger';
 import { AuthService } from '../../services/auth/auth.service';
-import { UserService } from '../../services/user/user.service';
 export class AuthController {
   private authService: AuthService;
-  private userService: UserService;
 
   constructor() {
     this.authService = new AuthService();
-    this.userService = new UserService();
   }
 
   public singIn = async (req: Request, res: Response) => {

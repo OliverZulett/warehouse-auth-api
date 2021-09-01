@@ -3,10 +3,6 @@ import fs from 'fs';
 import * as jwt from 'jsonwebtoken';
 import path from 'path';
 
-export interface RequestCustomInterface extends Request {
-  userId: any;
-}
-
 export class AuthMiddleware {
   public static validateToken = (
     req: Request,
